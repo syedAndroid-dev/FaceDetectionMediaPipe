@@ -1,0 +1,9 @@
+import org.jetbrains.kotlin.de.undercouch.gradle.tasks.download.Download
+
+tasks.register('downloadModelFile', Download) {
+    src 'https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite'
+    dest project.ext.ASSET_DIR + '/face_detection_short_range.tflite'
+    overwrite false
+}
+
+preBuild.dependsOn downloadModelFile
